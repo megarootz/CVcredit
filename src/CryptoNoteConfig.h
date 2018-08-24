@@ -87,7 +87,7 @@ const uint64_t MIN_BLOCK_REWARD                              = (UINT64_C(150) * 
 const uint64_t REWARD_HALVING_INTERVAL                       = (UINT64_C(11000));
 
 const char     CRYPTONOTE_NAME[]                             = "lolipop";
-const char     GENESIS_COINBASE_TX_HEX[]                     = "";
+const char     GENESIS_COINBASE_TX_HEX[]                     = "010601ff000180acc7f037029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd08807121010bf905c818ea637da82db02fbe37d71a5453ca25ef7a92d78fe703c77faeb6aa";
 const uint32_t GENESIS_NONCE                                 = 420;
 
 const uint8_t  TRANSACTION_VERSION_1                         =  1;
