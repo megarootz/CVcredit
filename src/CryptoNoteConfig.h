@@ -14,13 +14,13 @@ namespace parameters {
 const uint64_t CRYPTONOTE_MAX_BLOCK_NUMBER                   = 500000000;
 const size_t   CRYPTONOTE_MAX_BLOCK_BLOB_SIZE                = 500000000;
 const size_t   CRYPTONOTE_MAX_TX_SIZE                        = 1000000000;
-const uint64_t CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX       = 0xcb3fe; //  "po"
+const uint64_t CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX       = 0xc8a1e; //  "TXR"
 const size_t   CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW          = 6;
 const uint64_t CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT            = 60 * 60 * 2;
 
 const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 30;
 
-const uint64_t MONEY_SUPPLY                                  = UINT64_C(8589869056000000000);
+const uint64_t MONEY_SUPPLY                                  = UINT64_C(500000000);
 
 const size_t   CRYPTONOTE_REWARD_BLOCKS_WINDOW               = 100;
 const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE     = 2000; //size of block (bytes) after which reward for block calculated using block size
@@ -32,7 +32,7 @@ const uint64_t COIN                                          = UINT64_C(10000000
 const uint64_t MINIMUM_FEE                                   = UINT64_C(100000);     // pow(10, 5)
 const uint64_t DEFAULT_DUST_THRESHOLD                        = UINT64_C(100000);     // pow(10, 5)
 
-const uint64_t DIFFICULTY_TARGET                             = 120; // seconds
+const uint64_t DIFFICULTY_TARGET                             = 250; // seconds
 const uint64_t EXPECTED_NUMBER_OF_BLOCKS_PER_DAY             = 24 * 60 * 60 / DIFFICULTY_TARGET;
 const size_t   DIFFICULTY_WINDOW                             = 240; // blocks
 const size_t   DIFFICULTY_CUT                                = 30;  // timestamps to cut after sorting
@@ -82,12 +82,12 @@ const char     CRYPTONOTE_BLOCKCHAIN_INDICES_FILENAME[]      = "blockchainindice
 const char     MINER_CONFIG_FILE_NAME[]                      = "miner_conf.json";
 } // parameters
 
-const uint64_t START_BLOCK_REWARD                            = (UINT64_C(150) * parameters::COIN);
-const uint64_t MIN_BLOCK_REWARD                              = (UINT64_C(150) * parameters::COIN);
+const uint64_t START_BLOCK_REWARD                            = (UINT64_C(250) * parameters::COIN);
+const uint64_t MIN_BLOCK_REWARD                              = (UINT64_C(250) * parameters::COIN);
 const uint64_t REWARD_HALVING_INTERVAL                       = (UINT64_C(11000));
 
-const char     CRYPTONOTE_NAME[]                             = "JADETIGER";
-const char     GENESIS_COINBASE_TX_HEX[]                     = "010601ff000180acc7f037029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd088071210178c97a85ff89802ce49bb6e0861bb9b021e21b3ab951604a694b8045463bea57";
+const char     CRYPTONOTE_NAME[]                             = "TXRgold";
+const char     GENESIS_COINBASE_TX_HEX[]                     = "";
 const uint32_t GENESIS_NONCE                                 = 420;
 
 const uint8_t  TRANSACTION_VERSION_1                         =  1;
@@ -103,8 +103,8 @@ const size_t   BLOCKS_IDS_SYNCHRONIZING_DEFAULT_COUNT        =  10000;  //by def
 const size_t   BLOCKS_SYNCHRONIZING_DEFAULT_COUNT            =  128;    //by default, blocks count in blocks downloading
 const size_t   COMMAND_RPC_GET_BLOCKS_FAST_MAX_COUNT         =  1000;
 
-const int      P2P_DEFAULT_PORT                              = 36522;
-const int      RPC_DEFAULT_PORT                              = 36520;
+const int      P2P_DEFAULT_PORT                              = 17236;
+const int      RPC_DEFAULT_PORT                              = 18236;
 
 const size_t   P2P_LOCAL_WHITE_PEERLIST_LIMIT                =  1000;
 const size_t   P2P_LOCAL_GRAY_PEERLIST_LIMIT                 =  5000;
@@ -119,11 +119,11 @@ const uint32_t P2P_DEFAULT_CONNECTION_TIMEOUT                = 5000;          //
 const uint32_t P2P_DEFAULT_PING_CONNECTION_TIMEOUT           = 2000;          // 2 seconds
 const uint64_t P2P_DEFAULT_INVOKE_TIMEOUT                    = 60 * 2 * 1000; // 2 minutes
 const size_t   P2P_DEFAULT_HANDSHAKE_INVOKE_TIMEOUT          = 5000;          // 5 seconds
-const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "85ae8734f90bc1ee295ceb0ec05a49852d4dbbc9d1c27a619b5f4bdf26a0196e";
+const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "";
 
 const std::initializer_list<const char*> SEED_NODES = {
-    "159.65.132.179:36522",
-    "206.189.232.35:36522",
+    "159.65.132.179:17236",
+    "206.189.232.35:17236",
 };
 
 struct CheckpointData {
@@ -137,8 +137,9 @@ __attribute__((unused))
 
 // You may add here other checkpoints using the following format:
 // {<block height>, "<block hash>"},
-const std::initializer_list<CheckpointData> CHECKPOINTS = {};
-
+const std::initializer_list<CheckpointData> CHECKPOINTS = {
+{ 1000, "0000000000000000000000000000000000000000000000000000000000000000" },
+};
 } // CryptoNote
 
 #define ALLOW_DEBUG_COMMANDS
